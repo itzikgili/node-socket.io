@@ -7,7 +7,7 @@ const socketIO = require('socket.io');
 const PORT = process.env.PORT || 80;
 const INDEX = '/index.html';
 
-let app = express()
+let app = express();
 
 
 const server = app
