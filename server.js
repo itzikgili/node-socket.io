@@ -12,7 +12,9 @@ let app = express();
 /* ROUTES */
 app.use('/', function(req, res) {
   if(io){
-  io.emit('msg','123');
+    var on = req.query.on && ( req.query.on === 1 ||  req.query.on === '1')
+    
+    io.emit('msg', on);
   }
   res.send('yyeeeea');
 });
