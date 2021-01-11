@@ -6,15 +6,23 @@ const socketIO = require('socket.io');
 
 const PORT = process.env.PORT || 80;
 const INDEX = '/index.html';
-
+let io =null;
 let app = express();
+
+/* ROUTES */
+app.use('/', function(req, res) {
+  if(io){
+  io.emit('msg','123');
+  }
+  res.send('yyeeeea');
+});
 
 
 const server = app
   .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-const io = socketIO(server);
+io = socketIO(server);
 
 io.on('connection', (socket) => {
   console.log('Client connected');
@@ -22,11 +30,6 @@ io.on('connection', (socket) => {
 });
 
 
-/* ROUTES */
-app.use('/', function(req, res) {
-  io.emit('msg','123');
-   res.send('yyeeeea');
-});
 
 
 
