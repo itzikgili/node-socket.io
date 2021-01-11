@@ -12,7 +12,7 @@ let app = express();
 /* ROUTES */
 app.use('/', function(req, res) {
   if(io){
-    var on = req.query.on && ( req.query.on === 1 ||  req.query.on === '1')
+    var on = req.query.on
     
     io.emit('msg', on);
   }
