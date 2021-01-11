@@ -7,7 +7,8 @@ const routes = require('./routes');
 const PORT = process.env.PORT || 80;
 const INDEX = '/index.html';
 
-const server = express()
+let app = express()
+const server = app
   .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
@@ -19,7 +20,7 @@ io.on('connection', (socket) => {
 });
 
 /* ROUTES */
-server.use('/', routes);
+app.use('/', routes);
 
 
 
