@@ -2,7 +2,7 @@
 
 const express = require('express');
 const socketIO = require('socket.io');
-const routes = require('./routs');
+const routes = require('./routes');
 
 const PORT = process.env.PORT || 80;
 const INDEX = '/index.html';
