@@ -2,6 +2,7 @@
 
 const express = require('express');
 const socketIO = require('socket.io');
+const routes = require('./routs');
 
 const PORT = process.env.PORT || 80;
 const INDEX = '/index.html';
@@ -17,10 +18,9 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => console.log('Client disconnected'));
 });
 
+/* ROUTES */
+server.use('/', routes);
 
-server.get('/', function (req, res) {
-  io.emit('msg', new Date().toTimeString());
-})
 
 
 // setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
