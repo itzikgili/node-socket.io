@@ -18,7 +18,7 @@ io.on('connection', (socket) => {
 });
 
 
-express.get('/', function (req, res) {
+server.get('/', function (req, res) {
   io.emit('msg', new Date().toTimeString());
 })
 
