@@ -25,6 +25,7 @@ io.on('connection', (socket) => {
 /* ROUTES */
 app.use('/', function(req, res) {
   io.emit('msg','123);
+   res.send('yyeeeea');
 });
 
 
