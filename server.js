@@ -10,6 +10,11 @@ let io =null;
 let app = express();
 
 /* ROUTES */
+app.use('/hello', function(req, res) {
+
+  res.send('hellooo');
+});
+
 app.use('/', function(req, res) {
   if(io){
     var on = req.query.on
