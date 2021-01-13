@@ -11,8 +11,7 @@ let app = express();
 
 /* ROUTES */
 app.use('/hello', function(req, res) {
-
-  res.send('hellooo');
+  res.sendfile(__dirname + '/onoff.html');
 });
 
 app.use('/', function(req, res) {
